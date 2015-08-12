@@ -14,7 +14,7 @@ Sudzy is a collection of validator classes, currently intended for use with [Par
 
 Sudzy's `ValidModel` class decorates Paris' `Model` class. By extending `ValidModel`, your model classes gain immediate access to validations.
 
-By default the `ValidModel` will store validation errors when model properties are set (for an exising model) or a new model is saved, and throw a `ValidationException` on save if errors were encountered.
+By default the `ValidModel` will store validation errors when model properties are set (for an existing model) or a new model is saved, and throw a `ValidationException` on save if errors were encountered.
 
 [paris]: https://github.com/j4mie/paris
 [idiorm]: https://github.com/j4mie/idiorm
@@ -89,7 +89,7 @@ $model->setValidationOptions(
 );
 ```
 
-Be careful of using `::ON_SET`, as Paris' internal `set()` method is not called when a model is built via Paris' `hydrate()` or `create()` mehods. Also, `::ON_SET` tiggers the validation exception immediately, whereas `::ON_SAVE` permits validating all fields before throwing an exception.
+Be careful of using `::ON_SET`, as Paris' internal `set()` method is not called when a model is built via Paris' `hydrate()` or `create()` methods. Also, `::ON_SET` tiggers the validation exception immediately, whereas `::ON_SAVE` permits validating all fields before throwing an exception.
 
 Regardless of the value of `throw`, validations are checked when properties are set. In the case of new models (such as one built with Paris methods `create()` or `hydrate()`), validations are also checked on save. Regardless of when exceptions are thrown (or not), errors are immediately available through `getValidationErrors()`.
 
